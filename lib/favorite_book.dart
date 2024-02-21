@@ -96,7 +96,7 @@ class _favorite_bookState extends State<favorite_book> {
                                     var id = favoriteList[index]['id'];
                                     print(id);
                                     context.read<book>().updateIsfave(id);
-                                    context.read<Like>().remove(index);
+                                    context.read<Like>().removebyId(id);
                                   },
                                   icon: Icon(
                                     Icons.delete_sharp,

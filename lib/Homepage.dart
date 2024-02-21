@@ -36,7 +36,10 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    var Booklist = context.watch<book>().bookList;
+    final bookProvider = Provider.of<book>(context);
+    final Booklist = bookProvider.bookList;
+
+    ;
     return Scaffold(
       appBar: AppBar(
         title: const Text("หนังสือ"),
@@ -46,94 +49,103 @@ class _HomePageState extends State<HomePage> {
         child: Container(
           child: Column(
             children: [
-              GridView.builder(
-                shrinkWrap: true,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 4, // Adjust the number of columns as needed
-                  crossAxisSpacing: 5.0,
-                  mainAxisSpacing: 5.0,
-                  childAspectRatio: 0.7, // Adjust the aspect ratio as needed
-                ),
-                itemCount: Booklist.length,
-                itemBuilder: ((context, index) {
-                  bool isfav = Booklist[index]['isfave'];
-                  return Container(
-                    child: Card(
-                      elevation: 2,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Expanded(
-                            child: Image.asset(
-                              Booklist[index]['cover'],
-                              fit: BoxFit.cover,
+              Container(
+                width: double.infinity,
+                height: MediaQuery.of(context).size.height - 100,
+                child: GridView.builder(
+                  shrinkWrap: true,
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 4, // Adjust the number of columns as needed
+                    crossAxisSpacing: 5.0,
+                    mainAxisSpacing: 5.0,
+                    childAspectRatio: 0.7, // Adjust the aspect ratio as needed
+                  ),
+                  itemCount: Booklist.length,
+                  itemBuilder: ((context, index) {
+                    bool isfav = Booklist[index]['isfave'];
+                    return Container(
+                      child: Card(
+                        elevation: 2,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Expanded(
+                              child: Image.asset(
+                                Booklist[index]['cover'],
+                                fit: BoxFit.cover,
+                              ),
                             ),
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              TextButton(
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => Reader(
-                                        title: Booklist[index]['name'],
-                                        path: Booklist[index]['path'],
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                TextButton(
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => Reader(
+                                          title: Booklist[index]['name'],
+                                          path: Booklist[index]['path'],
+                                        ),
                                       ),
-                                    ),
-                                  );
-                                },
-                                child: const Text("อ่าน"),
-                              ),
-                              TextButton(
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => recommend(
-                                        title: Booklist[index]['name'],
-                                        cover: Booklist[index]['cover'],
-                                        path: Booklist[index]['path'],
-                                        recommendtext: Booklist[index]
-                                            ['recommend'],
-                                      ),
-                                    ),
-                                  );
-                                },
-                                child: const Text("ตัวอย่าง"),
-                              ),
-                              IconButton(
-                                onPressed: () {
-                                  if (isfav) {
-                                    return;
-                                  }
-                                  setState(
-                                    () {
-                                      Booklist[index]['isfave'] =
-                                          !Booklist[index]['isfave'];
-                                    },
-                                  );
-                                  context.read<Like>().add(
-                                      Booklist[index]['id'],
-                                      Booklist[index]['name'],
-                                      Booklist[index]['cover'],
-                                      Booklist[index]['path']);
-                                },
-                                icon: Icon(
-                                  isfav
-                                      ? Icons.favorite
-                                      : Icons.favorite_border,
-                                  color: Colors.deepPurple,
+                                    );
+                                  },
+                                  child: const Text("อ่าน"),
                                 ),
-                              )
-                            ],
-                          )
-                        ],
+                                TextButton(
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => recommend(
+                                          title: Booklist[index]['name'],
+                                          cover: Booklist[index]['cover'],
+                                          path: Booklist[index]['path'],
+                                          recommendtext: Booklist[index]
+                                              ['recommend'],
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                  child: const Text("ตัวอย่าง"),
+                                ),
+                                IconButton(
+                                  onPressed: () {
+                                    if (isfav) {
+                                      bookProvider
+                                          .updateIsfave(Booklist[index]['id']);
+                                      context
+                                          .read<Like>()
+                                          .removebyId(Booklist[index]['id']);
+                                    } else {
+                                      setState(
+                                        () {
+                                          Booklist[index]['isfave'] =
+                                              !Booklist[index]['isfave'];
+                                        },
+                                      );
+                                      context.read<Like>().add(
+                                          Booklist[index]['id'],
+                                          Booklist[index]['name'],
+                                          Booklist[index]['cover'],
+                                          Booklist[index]['path']);
+                                    }
+                                  },
+                                  icon: Icon(
+                                    isfav
+                                        ? Icons.favorite
+                                        : Icons.favorite_border,
+                                    color: Colors.deepPurple,
+                                  ),
+                                )
+                              ],
+                            )
+                          ],
+                        ),
                       ),
-                    ),
-                  );
-                }),
+                    );
+                  }),
+                ),
               ),
             ],
           ),

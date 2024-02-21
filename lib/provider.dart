@@ -16,8 +16,13 @@ class Like with ChangeNotifier {
     notifyListeners();
   }
 
-  void remove(int index) {
-    _list.removeAt(index);
+  // void remove(int index) {
+  //   _list.removeAt(index);
+  //   notifyListeners();
+  // }
+
+  void removebyId(String id) {
+    _list.removeWhere((element) => element['id'] == id);
     notifyListeners();
   }
 }
