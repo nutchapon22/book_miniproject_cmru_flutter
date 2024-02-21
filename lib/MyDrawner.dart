@@ -1,5 +1,7 @@
 import 'package:book/Homepage.dart';
 import 'package:book/favorite_book.dart';
+import 'package:book/pr.dart';
+import 'package:book/provider.dart';
 import 'package:flutter/material.dart';
 
 class MyDrawner extends StatelessWidget {
@@ -55,7 +57,14 @@ class MyDrawner extends StatelessWidget {
                 Icon(Icons.mic),
               ],
             ),
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const Public_relations(),
+                ),
+              );
+            },
           ),
           ListTile(
             title: const Row(

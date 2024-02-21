@@ -71,19 +71,14 @@ class public_relations with ChangeNotifier {
   List<Map<String, dynamic>> _public_relations = [
     {
       'id': '1',
-      'name': 'ประชาสัมพันธ์ ฉบับ ธันวาคม 2566',
-      'cover': '1.png',
+      'name': 'ประชาสัมพันธ์งานหนังสือ',
+      'cover': 'pr1.jpg',
     },
     {
       'id': '2',
-      'name': 'ประชาสัมพันธ์ ฉบับ พฤศจิกายน 2566',
-      'cover': '2.png',
-    },
-    {
-      'id': '3',
-      'name': 'ประชาสัมพันธ์ ฉบับ ตุลาคม 2566',
-      'cover': '3.png',
-    },
+      'name': 'ประชาสัมพันธ์งานวิทยาศาสตร์และเทคโนโลยี',
+      'cover': 'pr2.png',
+    }
   ];
 
   List get public_relationsList => _public_relations;

@@ -82,7 +82,7 @@ class _recommendState extends State<recommend> {
                   },
                   style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.deepPurple[50]),
-                  child: const Text("read"),
+                  child: const Text("อ่าน"),
                 )
               ],
             ),
