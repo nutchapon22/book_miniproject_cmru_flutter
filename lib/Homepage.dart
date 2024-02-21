@@ -95,6 +95,8 @@ class _HomePageState extends State<HomePage> {
                                         title: Booklist[index]['name'],
                                         cover: Booklist[index]['cover'],
                                         path: Booklist[index]['path'],
+                                        recommendtext: Booklist[index]
+                                            ['recommend'],
                                       ),
                                     ),
                                   );

@@ -17,11 +17,7 @@ class _favorite_bookState extends State<favorite_book> {
   @override
   Widget build(BuildContext context) {
     var favoriteList = context.watch<Like>().test;
-    // List<Map<String, dynamic>> favoriteList = [
-    //   {'name': 'b1', 'cover': '1.png', 'isfave': true},
-    //   {'name': 'b2', 'cover': '2.png', 'isfave': true},
-    //   {'name': 'b3', 'cover': '3.png', 'isfave': true},
-    // ];
+
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
@@ -87,6 +83,8 @@ class _favorite_bookState extends State<favorite_book> {
                                         title: favoriteList[index]['name'],
                                         cover: favoriteList[index]['cover'],
                                         path: favoriteList[index]['path'],
+                                        recommendtext: favoriteList[index]
+                                            ['recommend'],
                                       ),
                                     ),
                                   );

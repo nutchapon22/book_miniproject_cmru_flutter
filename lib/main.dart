@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (context) => Like()),
         ChangeNotifierProvider(create: (context) => book()),
+        ChangeNotifierProvider(create: (context) => public_relations()),
       ],
       child: MaterialApp(
           title: 'Flutter Demo',

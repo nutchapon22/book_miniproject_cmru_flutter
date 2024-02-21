@@ -18,7 +18,7 @@ class MyDrawner extends StatelessWidget {
                   'lo.png',
                   width: 100,
                 ),
-                Text("Boring science Book",
+                Text("Boring Science Magazine",
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,

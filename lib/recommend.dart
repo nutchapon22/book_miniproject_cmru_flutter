@@ -7,11 +7,13 @@ class recommend extends StatefulWidget {
     required this.title,
     required this.cover,
     required this.path,
+    required this.recommendtext,
   });
 
   final cover;
   final title;
   final path;
+  final recommendtext;
   @override
   State<recommend> createState() => _recommendState();
 }
@@ -58,9 +60,9 @@ class _recommendState extends State<recommend> {
                     color: Colors.deepPurple[50],
                   ),
                   width: 900,
-                  height: 500,
                   child: Container(
-                    child: Text('$test'),
+                    padding: const EdgeInsets.all(10),
+                    child: Text(widget.recommendtext),
                   ),
                 ),
                 const SizedBox(
