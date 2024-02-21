@@ -49,7 +49,7 @@ class _Public_relationsState extends State<Public_relations> {
                               child: Column(
                                 children: [
                                   Image.asset(
-                                    pr[index]['cover'],
+                                    'assets/${pr[index]['cover']}',
                                     width: 1200,
                                     fit: BoxFit.cover,
                                   ),

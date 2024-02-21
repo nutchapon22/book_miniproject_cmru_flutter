@@ -13,27 +13,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  // List<Map<String, dynamic>> Booklist = [
-  //   {
-  //     'name': 'สาระวิทย์ ฉบับ ธันวาคม 2566',
-  //     'cover': '1.png',
-  //     'path': 'bookpdf/1.pdf',
-  //     'isfave': false
-  //   },
-  //   {
-  //     'name': 'สาระวิทย์ ฉบับ พฤศจิกายน 2566',
-  //     'cover': '2.png',
-  //     'path': 'bookpdf/2.pdf',
-  //     'isfave': false
-  //   },
-  //   {
-  //     'name': 'สาระวิทย์ ฉบับ ตุลาคม 2566',
-  //     'cover': '3.png',
-  //     'path': 'bookpdf/3.pdf',
-  //     'isfave': false
-  //   },
-  // ];
-
   @override
   Widget build(BuildContext context) {
     final bookProvider = Provider.of<book>(context);
@@ -50,12 +29,10 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             children: [
               Container(
-                width: double.infinity,
-                height: MediaQuery.of(context).size.height - 100,
                 child: GridView.builder(
                   shrinkWrap: true,
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 4, // Adjust the number of columns as needed
+                    crossAxisCount: 3, // Adjust the number of columns as needed
                     crossAxisSpacing: 5.0,
                     mainAxisSpacing: 5.0,
                     childAspectRatio: 0.7, // Adjust the aspect ratio as needed
@@ -109,6 +86,8 @@ class _HomePageState extends State<HomePage> {
                                   },
                                   child: const Text("ตัวอย่าง"),
                                 ),
+                                // IconButton(
+                                //     onPressed: () {}, icon: Icon(Icons.book)),
                                 IconButton(
                                   onPressed: () {
                                     if (isfav) {
@@ -125,10 +104,12 @@ class _HomePageState extends State<HomePage> {
                                         },
                                       );
                                       context.read<Like>().add(
-                                          Booklist[index]['id'],
-                                          Booklist[index]['name'],
-                                          Booklist[index]['cover'],
-                                          Booklist[index]['path']);
+                                            Booklist[index]['id'],
+                                            Booklist[index]['name'],
+                                            Booklist[index]['cover'],
+                                            Booklist[index]['path'],
+                                            Booklist[index]['recommend'],
+                                          );
                                     }
                                   },
                                   icon: Icon(

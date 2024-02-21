@@ -21,7 +21,6 @@ class recommend extends StatefulWidget {
 class _recommendState extends State<recommend> {
   @override
   Widget build(BuildContext context) {
-    List test = ['asd', 'dsa', 'adsq'];
     return Scaffold(
       appBar: AppBar(
         title: Text(

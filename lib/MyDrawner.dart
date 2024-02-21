@@ -1,7 +1,6 @@
 import 'package:book/Homepage.dart';
 import 'package:book/favorite_book.dart';
 import 'package:book/pr.dart';
-import 'package:book/provider.dart';
 import 'package:flutter/material.dart';
 
 class MyDrawner extends StatelessWidget {
@@ -17,7 +16,7 @@ class MyDrawner extends StatelessWidget {
             child: Column(
               children: [
                 Image.asset(
-                  'lo.png',
+                  'assets/lo.png',
                   width: 100,
                 ),
                 Text("Boring Science Magazine",

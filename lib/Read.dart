@@ -29,7 +29,7 @@ class _ReaderState extends State<Reader> {
       body: Padding(
         padding: const EdgeInsets.all(10.0),
         child: SfPdfViewer.asset(
-          widget.path,
+          'assets/${widget.path}',
           key: _pdfViewerKey,
         ),
       ),
