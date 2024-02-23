@@ -17,6 +17,13 @@ class _favorite_bookState extends State<favorite_book> {
   @override
   Widget build(BuildContext context) {
     var favoriteList = context.watch<Like>().test;
+    double widthScreen = MediaQuery.of(context).size.width;
+    int? itemcount = 2;
+    if (widthScreen > 600 && widthScreen < 1500) {
+      itemcount = 3;
+    } else if (widthScreen > 1500) {
+      itemcount = 4;
+    }
 
     return Scaffold(
       appBar: AppBar(
@@ -30,8 +37,9 @@ class _favorite_bookState extends State<favorite_book> {
             children: [
               GridView.builder(
                 shrinkWrap: true,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 4, // Adjust the number of columns as needed
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount:
+                      itemcount, // Adjust the number of columns as needed
                   crossAxisSpacing: 5.0,
                   mainAxisSpacing: 5.0,
                   childAspectRatio: 0.7, // Adjust the aspect ratio as needed
@@ -45,9 +53,12 @@ class _favorite_bookState extends State<favorite_book> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Expanded(
-                            child: Image.asset(
-                              favoriteList[index]['cover'],
-                              fit: BoxFit.cover,
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Image.asset(
+                                favoriteList[index]['cover'],
+                                fit: BoxFit.cover,
+                              ),
                             ),
                           ),
                           // Padding(

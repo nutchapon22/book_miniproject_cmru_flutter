@@ -28,14 +28,9 @@ class MyDrawner extends StatelessWidget {
             ),
           ),
           ListTile(
-            title: const Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Text(
-                  "หนังสือ",
-                ),
-                Icon(Icons.book),
-              ],
+            leading: Icon(Icons.book),
+            title: Text(
+              "หนังสือ",
             ),
             onTap: () {
               Navigator.push(
@@ -47,14 +42,9 @@ class MyDrawner extends StatelessWidget {
             },
           ),
           ListTile(
-            title: const Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Text(
-                  "ประชาสัมพันธ์",
-                ),
-                Icon(Icons.mic),
-              ],
+            leading: Icon(Icons.mic),
+            title: Text(
+              "ประชาสัมพันธ์",
             ),
             onTap: () {
               Navigator.push(
@@ -66,14 +56,9 @@ class MyDrawner extends StatelessWidget {
             },
           ),
           ListTile(
-            title: const Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Text(
-                  "รายการโปรด",
-                ),
-                Icon(Icons.favorite),
-              ],
+            leading: Icon(Icons.favorite),
+            title: Text(
+              "รายการโปรด",
             ),
             onTap: () {
               Navigator.push(

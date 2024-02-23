@@ -53,13 +53,16 @@ class _Public_relationsState extends State<Public_relations> {
                                     width: 1200,
                                     fit: BoxFit.cover,
                                   ),
-                                  Container(
-                                    padding: EdgeInsets.all(2),
-                                    child: Text(
-                                      '${pr[index]['name']}',
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 20,
+                                  FittedBox(
+                                    fit: BoxFit.fitWidth,
+                                    child: Container(
+                                      padding: EdgeInsets.all(2),
+                                      child: Text(
+                                        '${pr[index]['name']}',
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 20,
+                                        ),
                                       ),
                                     ),
                                   ),
