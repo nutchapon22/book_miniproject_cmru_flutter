@@ -28,6 +28,7 @@ class _Public_relationsState extends State<Public_relations> {
               children: [
                 ListView.builder(
                   shrinkWrap: true,
+                  physics: NeverScrollableScrollPhysics(),
                   itemCount: pr.length,
                   itemBuilder: ((context, index) {
                     return Center(

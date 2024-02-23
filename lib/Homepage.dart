@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:book/MyDrawner.dart';
 import 'package:book/Read.dart';
 import 'package:book/provider.dart';
@@ -40,6 +38,7 @@ class _HomePageState extends State<HomePage> {
             children: [
               Container(
                 child: GridView.builder(
+                  physics: NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount:

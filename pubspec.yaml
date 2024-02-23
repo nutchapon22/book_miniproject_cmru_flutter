@@ -64,10 +64,12 @@ flutter:
     - assets/bookpdf/2.pdf
     - assets/bookpdf/3.pdf
     - assets/bookpdf/4.pdf
+    - assets/bookpdf/5.pdf
     - assets/1.png
     - assets/2.png
     - assets/3.png
     - assets/4.png
+    - assets/5.png
     - assets/lo.png
     - assets/pr1.jpg
     - assets/pr2.png
